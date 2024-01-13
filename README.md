@@ -1,2 +1,2 @@
 # SelfSolv
-self solving maze
+1) create a window
