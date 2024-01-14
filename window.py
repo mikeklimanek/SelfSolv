@@ -1,4 +1,4 @@
-from main import Maze, Cell, Line, Point
+from main import *
 
 class Window:
  def __init__(self, width, height):
