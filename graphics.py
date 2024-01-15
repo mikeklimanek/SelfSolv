@@ -32,15 +32,23 @@ class Cell:
      self.has_bottom_wall = True
 
  def draw(self):
-     if self._win is not None:
-         if self.has_left_wall:
-             self._win.draw_line(Line(Point(self.x1, self.y1), Point(self.x1, self.y2)), "black")
-         if self.has_right_wall:
-             self._win.draw_line(Line(Point(self.x2, self.y1), Point(self.x2, self.y2)), "black")
-         if self.has_top_wall:
-             self._win.draw_line(Line(Point(self.x1, self.y1), Point(self.x2, self.y1)), "black")
-         if self.has_bottom_wall:
-             self._win.draw_line(Line(Point(self.x1, self.y2), Point(self.x2, self.y2)), "black")
+       if self._win is not None:
+           if self.has_left_wall:
+               self._win.draw_line(Line(Point(self.x1, self.y1), Point(self.x1, self.y2)), "black")
+           else:
+               self._win.draw_line(Line(Point(self.x1, self.y1), Point(self.x1, self.y2)), "white")
+           if self.has_right_wall:
+               self._win.draw_line(Line(Point(self.x2, self.y1), Point(self.x2, self.y2)), "black")
+           else:
+               self._win.draw_line(Line(Point(self.x2, self.y1), Point(self.x2, self.y2)), "white")
+           if self.has_top_wall:
+               self._win.draw_line(Line(Point(self.x1, self.y1), Point(self.x2, self.y1)), "black")
+           else:
+               self._win.draw_line(Line(Point(self.x1, self.y1), Point(self.x2, self.y1)), "white")
+           if self.has_bottom_wall:
+               self._win.draw_line(Line(Point(self.x1, self.y2), Point(self.x2, self.y2)), "black")
+           else:
+               self._win.draw_line(Line(Point(self.x1, self.y2), Point(self.x2, self.y2)), "white")
 
  def draw_move(self, to_cell, undo=False):
      start_x = self.x1 + ((self.x2 - self.x1) // 2)
@@ -73,6 +81,19 @@ class Maze:
              cell = Cell(x1, y1, x2, y2, self._win)
              self._cells[i][j] = cell
              self._draw_cell(cell, i, j)
+
+ def _break_entrance_and_exit(self):
+    # Break the entrance wall
+     entrance_cell = self._cells[0][0]
+     entrance_cell.has_top_wall = False
+     entrance_cell.has_left_wall = False
+     self._draw_cell(entrance_cell, 0, 0)
+
+    # Break the exit wall
+     exit_cell = self._cells[-1][-1]
+     exit_cell.has_bottom_wall = False
+     exit_cell.has_right_wall = False
+     self._draw_cell(exit_cell, len(self._cells)-1, len(self._cells[0])-1)
 
  def _draw_cell(self, cell, i, j):
      cell.draw()
