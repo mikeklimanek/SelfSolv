@@ -1,17 +1,17 @@
 from main import *
 
-class Window:
+class Window(tk.Tk):
  def __init__(self, width, height):
-     self.root = tk.Tk()
-     self.root.title("My Window")
-     self.canvas = tk.Canvas(self.root, width=width, height=height)
+     super().__init__()
+     self.title("My Window")
+     self.canvas = tk.Canvas(self, width=width, height=height)
      self.canvas.pack()
      self.running = False
-     self.root.protocol("WM_DELETE_WINDOW", self.close)
+     self.protocol("WM_DELETE_WINDOW", self.close)
 
  def redraw(self):
-     self.root.update_idletasks()
-     self.root.update()
+     self.update_idletasks()
+     self.update()
 
  def wait_for_close(self):
      self.running = True
