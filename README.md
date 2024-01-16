@@ -1,6 +1,4 @@
 # SelfSolv
-![](SelfSolv.gif)
-
 1) create a window
 2) finishing window actions
 3) implement main()
@@ -19,3 +17,5 @@
 16) self reset for cells visited
 17) canvas line that connects a path used to solve the maze
 18) updates to paths of solving line, correctly comes back from dead ends until it finds finish line
+19) creating maze is now much faster
+20) SelfSolving line goes a little slower for showing purposes
