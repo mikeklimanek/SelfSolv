@@ -1,4 +1,6 @@
 # SelfSolv
+![SelvSolv](https://github.com/mikeklimanek/SelfSolv/assets/46258877/5e70ff96-5dfc-4cbd-81f4-35fcefd7a6d7)
+
 1) create a window
 2) finishing window actions
 3) implement main()
