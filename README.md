@@ -13,3 +13,4 @@
 12) added start and finish points
 13) debugged and corrected code for test.py to work
 14) found and solved a problem with start and finish points
+15) breaking walls of cells to create a maze
