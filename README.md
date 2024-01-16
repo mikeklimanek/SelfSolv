@@ -14,3 +14,5 @@
 13) debugged and corrected code for test.py to work
 14) found and solved a problem with start and finish points
 15) breaking walls of cells to create a maze
+16) self reset for cells visited
+17) 
