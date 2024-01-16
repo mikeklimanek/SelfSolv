@@ -20,9 +20,10 @@ class Line:
 
     def draw(self, canvas, fill_color="black"):
         canvas.create_line(
-            self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2
+            self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=5
         )
         canvas.pack(fill=BOTH, expand=1)
+        
 
 class Cell:
     def __init__(self, win=None):
@@ -49,25 +50,25 @@ class Cell:
             self._win.draw_line(line)
         else:
             line = Line(Point(x1, y1), Point(x1, y2))
-            self._win.draw_line(line, "white")
+            self._win.draw_line(line, "grey")
         if self.has_top_wall:
             line = Line(Point(x1, y1), Point(x2, y1))
             self._win.draw_line(line)
         else:
             line = Line(Point(x1, y1), Point(x2, y1))
-            self._win.draw_line(line, "white")
+            self._win.draw_line(line, "grey")
         if self.has_right_wall:
             line = Line(Point(x2, y1), Point(x2, y2))
             self._win.draw_line(line)
         else:
             line = Line(Point(x2, y1), Point(x2, y2))
-            self._win.draw_line(line, "white")
+            self._win.draw_line(line, "grey")
         if self.has_bottom_wall:
             line = Line(Point(x1, y2), Point(x2, y2))
             self._win.draw_line(line)
         else:
             line = Line(Point(x1, y2), Point(x2, y2))
-            self._win.draw_line(line, "white")
+            self._win.draw_line(line, "grey")
 
     def draw_move(self, to_cell, undo=False):
         if self._win is None:
@@ -78,9 +79,10 @@ class Cell:
         to_x_mid = (to_cell._x1 + to_cell._x2) / 2
         to_y_mid = (to_cell._y1 + to_cell._y2) / 2
 
-        fill_color = "red"
+        width = 10
+        fill_color = "dark blue"
         if undo:
-            fill_color = "gray"
+            fill_color = "light grey"
 
         if self._x1 > to_cell._x1:
             line = Line(Point(self._x1, y_mid), Point(x_mid, y_mid))
@@ -158,7 +160,13 @@ class Maze:
         if self._win is None:
             return
         self._win.redraw()
-        time.sleep(0.001)
+        time.sleep(0)
+
+    def _animateSolver(self):
+        if self._win is None:
+            return
+        self._win.redraw()
+        time.sleep(0.01)
 
     def _break_entrance_and_exit(self):
         self._cells[0][0].has_top_wall = False
@@ -216,7 +224,7 @@ class Maze:
 
     
     def _solve_r(self, i, j):
-        self._animate()
+        self._animateSolver()
 
         self._cells[i][j].visited = True
 

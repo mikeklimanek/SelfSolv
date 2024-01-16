@@ -5,9 +5,9 @@ from window import *
 from graphics import *
 
 def main():
-    num_rows = 35
+    num_rows = 40
     num_cols = 40
-    margin = 50
+    margin = 70
     screen_x = 1600
     screen_y = 1200
     cell_size_x = (screen_x - 2 * margin) / num_cols
