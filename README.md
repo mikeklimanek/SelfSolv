@@ -1,5 +1,4 @@
 # SelfSolv
-![SelvSolv](https://github.com/mikeklimanek/SelfSolv/assets/46258877/36062a3a-b41e-4e90-a399-03e6b6c26747)
 
 
 1) create a window
