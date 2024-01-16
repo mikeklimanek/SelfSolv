@@ -1,5 +1,6 @@
 # SelfSolv
-![](SelfSolv.gif)
+![SelvSolv](https://github.com/mikeklimanek/SelfSolv/assets/46258877/36062a3a-b41e-4e90-a399-03e6b6c26747)
+
 
 1) create a window
 2) finishing window actions
@@ -19,3 +20,4 @@
 16) self reset for cells visited
 17) canvas line that connects a path used to solve the maze
 18) updates to paths of solving line, correctly comes back from dead ends until it finds finish line
+19) maze is now created faster, while SelfSolving line goes slower for showing purposes
