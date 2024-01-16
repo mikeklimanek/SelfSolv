@@ -15,4 +15,5 @@
 14) found and solved a problem with start and finish points
 15) breaking walls of cells to create a maze
 16) self reset for cells visited
-17) 
+17) canvas line that connects a path used to solve the maze
+18) updates to paths of solving line, correctly comes back from dead ends until it finds finish line
