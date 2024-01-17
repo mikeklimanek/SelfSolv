@@ -1,5 +1,7 @@
 from main import *
 from window import *
+from tkinter import *
+from players import *
 import time
 import random
 
@@ -279,3 +281,30 @@ class Maze:
 
     def solve(self):
         return self._solve_r(0, 0)
+    
+class Player:
+    def get_cell(self, x, y):
+        # Iterate over all cells in the maze
+        for row in self.maze:
+            for cell in row:
+                # Check if the player is within the cell
+                if cell._x1 <= x <= cell._x2 and cell._y1 <= y <= cell._y2:
+                    # Return the cell if the player is within it
+                    return cell
+
+        # Return None if the player is not within any cell
+        return None
+    
+    def move_player(self, dx, dy):
+        # Get the current cell of the player
+        current_cell = self.get_cell(self.player.x, self.player.y)
+
+        # Calculate the new player position
+        new_x = self.player.x + dx
+        new_y = self.player.y + dy
+
+        # Get the new cell
+        new_cell = self.get_cell(new_x, new_y)
+
+        # Move the player to the new cell
+        current_cell.draw_move(new_cell)
